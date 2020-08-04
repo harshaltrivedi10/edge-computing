@@ -22,19 +22,19 @@ import re
 import random
 from subprocess import PIPE, run
 
-accessKeyId = "AKIAZRLDXS44MZAGBHVN"
-secretAccessKey = "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"
+accessKeyId = "ENTER ACCESS KEY ID"
+secretAccessKey = "ENTER SECRET ACCESS KEY"
 
 session = Session(aws_access_key_id = accessKeyId, aws_secret_access_key = secretAccessKey)
 s3 = session.resource('s3')
-s3_object = s3.Bucket('cse546-video-bucket')
-s3OutputObject = s3.Bucket("cse546-output-bucket")
-queue_url = "https://sqs.us-east-1.amazonaws.com/655728547640/input-queue.fifo"
+s3_object = s3.Bucket('VIDEO INPUT BUCKET')
+s3OutputObject = s3.Bucket("OUTPUT BUCKET")
+queue_url = "INPUT QUEUE URL"
 sqs = boto3.client("sqs", region_name = "us-east-1", aws_access_key_id = accessKeyId, aws_secret_access_key = secretAccessKey)
 
 
 def takeFromVideoQueue():
-    waiting_requests = int(sqs.get_queue_attributes(QueueUrl="https://sqs.us-east-1.amazonaws.com/655728547640/vidoe-queue.fifo", AttributeNames=["ApproximateNumberOfMessages"])["Attributes"]["ApproximateNumberOfMessages"])
+    waiting_requests = int(sqs.get_queue_attributes(QueueUrl="VIDEO QUEUE URL", AttributeNames=["ApproximateNumberOfMessages"])["Attributes"]["ApproximateNumberOfMessages"])
     if waiting_requests > 0:
         msg = sqs.receive_message(QueueUrl=queue_url, MessageAttributeNames=['All', ], MaxNumberOfMessages=1, WaitTimeSeconds=10, VisibilityTimeout = 160)
         videoName = msg['Messages'][0]['Body']

@@ -7,10 +7,10 @@ import urllib
 import re
 import random
 
-sqs_video = "https://sqs.us-east-1.amazonaws.com/655728547640/video-queue.fifo"
-sqs_input = "https://sqs.us-east-1.amazonaws.com/655728547640/input-queue.fifo"
-accessKeyId = "AKIAZRLDXS44MZAGBHVN"
-secretAccessKey = "Q43upkbvNOcCV0+X9k+VkOx1Zq39w3prpn+BQyXG"
+sqs_video = "VIDEO QUEUE URL"
+sqs_input = "INPUT QUEUE URL"
+accessKeyId = "ENTER YOUR SECRET KEY ID"
+secretAccessKey = "ENTER YOUR SECRET ACCESS KEY"
 
 session = Session(aws_access_key_id = accessKeyId, aws_secret_access_key = secretAccessKey)
 sqs = session.client('sqs', region_name='us-east-1')

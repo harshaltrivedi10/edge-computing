@@ -4,11 +4,11 @@ import copy
 import random
 
 WORKER_CAP = 10
-id = "AKIAZRLDXS44MZAGBHVN"
-secret = "Q43upkbvNOcCV0+X9k+VkOx1Zq39w3prpn+BQyXG"
+id = "EMTER YOUR ID"
+secret = "ENTER YOUR SECRET KEY"
 sqs_client = boto3.client("sqs", aws_access_key_id = id , aws_secret_access_key = secret, region_name = "us-east-1")
-sqs_input = "https://sqs.us-east-1.amazonaws.com/655728547640/input-queue.fifo"
-sqs_video = "https://sqs.us-east-1.amazonaws.com/655728547640/video-queue.fifo"
+sqs_input = "INPUT QUEUE URL"
+sqs_video = "VIDEO QUEUE URL"
 
 ec2_resource = boto3.resource("ec2", aws_access_key_id = id , aws_secret_access_key = secret,  region_name = "us-east-1")
 ec2_client = boto3.client("ec2", aws_access_key_id = id , aws_secret_access_key = secret, region_name = "us-east-1")
